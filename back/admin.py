@@ -170,6 +170,43 @@ class CompanyAdmin(admin.ModelAdmin):
 class WorkerAdmin(admin.ModelAdmin):
     list_display = ("name", "contractor", "deleted")
 
+    fieldsets = (
+        (
+            "Personal Info",
+            {
+                "fields": ("name", "phone_number", "birthday"),
+            },
+        ),
+
+        (
+            "Documents and Scans",
+            {
+                "fields": (
+                    "card_number_id",
+                    "license_number",
+                    "license_scan",
+                    "passport",
+                    "passport_scan",
+                    "safety_green_card",
+                    "safety_green_card_scan"
+                ),
+            },
+        ),
+
+        (
+            "Working Info",
+            {
+                "fields": (
+                    "registration_number",
+                    "position_in_company",
+                    "trade_competency",
+                    "safety_quiz_answer",
+                    "personal_declaration"
+                ),
+            },
+        ),
+    )
+
 
 class ProjectAdmin(admin.ModelAdmin):
     model = Project
@@ -181,6 +218,53 @@ class ProjectAdmin(admin.ModelAdmin):
         "end_date",
         "extend_date",
         "status",
+    )
+
+    fieldsets = (
+        (
+            "General Info",
+            {
+                "fields":
+                (
+                    "name",
+                    "description",
+                    "location",
+                    "status",
+                    "company"
+                ),
+            },
+        ),
+
+        (
+            "Deadlines",
+            {
+                "fields": ("start_date", "end_date", "extend_date"),
+            },
+        ),
+
+        (
+            "Participants",
+            {
+                "fields": ("contractor", "workers", "responsible_person"),
+            },
+        ),
+
+        (
+            "Type of work",
+            {
+                "fields":
+                (
+                    "work_at_height",
+                    "lifting_work",
+                    "confined_space",
+                    "hot_work",
+                    "chemical_handling",
+                    "work_alone",
+                    "work_at_sensitive_area",
+                    "cold_work"
+                ),
+            },
+        ),
     )
 
 
