@@ -205,6 +205,16 @@ class WorkerAdmin(admin.ModelAdmin):
                 ),
             },
         ),
+
+        (
+            "General Info",
+            {
+                "fields": (
+                    "contractor",
+                    "deleted",
+                ),
+            },
+        ),
     )
 
 
@@ -230,7 +240,8 @@ class ProjectAdmin(admin.ModelAdmin):
                     "description",
                     "location",
                     "status",
-                    "company"
+                    "company",
+                    "deleted"
                 ),
             },
         ),
