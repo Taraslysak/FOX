@@ -3,8 +3,8 @@ name: Run tests on any Push event
 # Они будт тестироваться перед сборкой
 on:
   push:
-    tags:
-      - '!refs/tags/*'
+    # tags:
+    #   - '!refs/tags/*'
     branches:
       - '*'
 jobs:
@@ -12,7 +12,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@master
-      # - uses: actions/setup-python@v1
+      - uses: actions/setup-python@v1
         # with:
         #   python-version: '3.8'
         #   architecture: 'x64'
